@@ -37,7 +37,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3
+          ruby-version: 3.3.6
           bundler-cache: true
 
       - name: Build site
@@ -79,7 +79,7 @@ jobs:
       - name: Verify indexing readiness
         run: node scripts/verify-indexing-readiness.mjs
         env:
-          SITE_URL: https://notes.henjini.com
+          SITE_URL: https://leelog.dafnelee.com
           INDEXING_CHECK_POST_URL_PREFIX: /topics/
           INDEXING_CHECK_RETRIES: 6
           INDEXING_CHECK_DELAY_MS: 10000
