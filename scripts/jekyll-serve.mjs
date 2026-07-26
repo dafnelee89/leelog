@@ -4,7 +4,10 @@ import process from "node:process";
 
 const root = process.cwd();
 const rubyBin = process.env.RUBY_BIN || "C:\\Ruby33-x64\\bin";
-const bundleCommand = process.platform === "win32" ? path.join(rubyBin, "bundle.bat") : "bundle";
+const isWindows = process.platform === "win32";
+const useRbenv =
+  !isWindows && spawnSync("rbenv", ["which", "bundle"], { stdio: "ignore" }).status === 0;
+const bundleCommand = isWindows ? path.join(rubyBin, "bundle.bat") : useRbenv ? "rbenv" : "bundle";
 const host = process.env.JEKYLL_HOST || "127.0.0.1";
 const port = process.env.JEKYLL_PORT || "4102";
 const prod = process.argv.includes("--prod");
@@ -13,18 +16,22 @@ const includeDrafts = !prod && process.env.JEKYLL_DRAFTS !== "false";
 
 const env = {
   ...process.env,
-  PATH: process.platform === "win32" ? `${rubyBin};${process.env.PATH || ""}` : process.env.PATH,
+  PATH: isWindows ? `${rubyBin};${process.env.PATH || ""}` : process.env.PATH,
   BUNDLE_PATH: process.env.BUNDLE_PATH || "vendor/bundle",
   BUNDLE_USER_HOME: process.env.BUNDLE_USER_HOME || path.join(root, ".bundle-home"),
   BUNDLE_APP_CONFIG: process.env.BUNDLE_APP_CONFIG || path.join(root, ".bundle")
 };
 
+function bundleArgs(args) {
+  return useRbenv ? ["exec", "bundle", ...args] : args;
+}
+
 function runBundle(args, stdio = "inherit") {
-  return spawnSync(bundleCommand, args, {
+  return spawnSync(bundleCommand, bundleArgs(args), {
     cwd: root,
     env,
     stdio,
-    shell: process.platform === "win32"
+    shell: isWindows
   });
 }
 
@@ -58,13 +65,13 @@ if (includeDrafts) {
 }
 
 console.log(`[info] http://${host}:${port}`);
-console.log(`[info] ${bundleCommand} ${args.join(" ")}`);
+console.log(`[info] ${bundleCommand} ${bundleArgs(args).join(" ")}`);
 
-const child = spawn(bundleCommand, args, {
+const child = spawn(bundleCommand, bundleArgs(args), {
   cwd: root,
   env,
   stdio: "inherit",
-  shell: process.platform === "win32"
+  shell: isWindows
 });
 
 function stopChild() {
@@ -72,7 +79,7 @@ function stopChild() {
     return;
   }
 
-  if (process.platform === "win32" && child.pid) {
+  if (isWindows && child.pid) {
     spawnSync("taskkill", ["/pid", String(child.pid), "/T", "/F"], {
       stdio: "ignore"
     });
