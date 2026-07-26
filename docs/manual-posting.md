@@ -34,7 +34,11 @@ description: "검색 결과와 공유 카드에 사용할 짧은 설명."
 
 ## LNB 메뉴 추가
 
-`_data/lnb_menu.yml`에 원하는 페이지 경로를 추가한다.
+LNB 메뉴를 추가, 수정, 삭제할 때는 `_data/lnb_menu.yml`만 바꾸면 끝나지 않는다. `topics/**/index.md` 페이지와 기존 글의 `categories`도 함께 맞춰야 한다.
+
+자세한 1단계/2단계 카테고리 추가, 수정, 삭제 예시는 `docs/lnb-category-guide.md`를 참고한다.
+
+간단한 추가 예시는 아래와 같다.
 
 ```yaml
 - title: 일상
@@ -49,9 +53,7 @@ description: "검색 결과와 공유 카드에 사용할 짧은 설명."
     - title: 여행
       slug: travel
       url: /topics/daily/travel/
-      children:
-        - title: 국내
-          url: /topics/daily/travel/korea/
+      category: [daily, travel]
 ```
 
 ## 검증
