@@ -1,0 +1,56 @@
+---
+layout: page
+---
+
+{% include lang.html %}
+
+{% assign topic_posts = site.posts | where_exp: 'post', 'post.categories[0] == page.topic' %}
+
+{% if page.subtopic %}
+  {% assign topic_posts = topic_posts | where_exp: 'post', 'post.categories[1] == page.subtopic' %}
+{% endif %}
+
+{% assign df_strftime_d = site.data.locales[lang].df.archives.strftime | default: '/ %d' %}
+{% assign df_dayjs_d = site.data.locales[lang].df.archives.dayjs | default: '/ DD' %}
+
+{% if page.subtopics %}
+  <div class="topic-children">
+    {% for item in page.subtopics %}
+      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<h1 class="dynamic-title">
+  {{ page.title }}
+</h1>
+
+<div id="archives" class="pl-xl-3">
+  {% if topic_posts.size > 0 %}
+    {% for post in topic_posts %}
+      {% assign cur_year = post.date | date: '%Y' %}
+
+      {% if cur_year != last_year %}
+        {% unless forloop.first %}</ul>{% endunless %}
+
+        <time class="year lead d-block">{{ cur_year }}</time>
+        {{ '<ul class="list-unstyled">' }}
+
+        {% assign last_year = cur_year %}
+      {% endif %}
+
+      <li>
+        {% assign ts = post.date | date: '%s' %}
+        <span class="date month" data-ts="{{ ts }}" data-df="MM">{{ post.date | date: '%m' }}</span>
+        <span class="date day small text-muted ms-1" data-ts="{{ ts }}" data-df="{{ df_dayjs_d }}">
+          {{ post.date | date: df_strftime_d }}
+        </span>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
+
+      {% if forloop.last %}</ul>{% endif %}
+    {% endfor %}
+  {% else %}
+    <p>아직 이 주제에 작성된 글이 없습니다.</p>
+  {% endif %}
+</div>

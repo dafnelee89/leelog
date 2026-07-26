@@ -1,0 +1,170 @@
+# The Site Configuration
+
+theme: jekyll-theme-chirpy
+
+lang: ko-KR
+timezone: Asia/Seoul
+
+title: leelog
+tagline: 일상, 공부, 리뷰, 레시피를 직접 기록하는 Dafne의 노트
+
+description: >-
+  일상 기록, 공부 메모, 리뷰, 레시피처럼 오래 남기고 싶은 개인 기록을 직접 작성해 정리하는 Dafne의 블로그입니다.
+
+seo_keywords:
+  - 개인 블로그
+  - 일상 기록
+  - 공부 기록
+  - 리뷰
+  - 레시피
+  - 노트 블로그
+  - leelog
+
+url: "https://leelog.dafnelee.com"
+baseurl: ""
+
+github:
+  username: dafnelee89
+
+twitter:
+  username:
+
+social:
+  name: dafnelee
+  email: 124589jj@gmail.com
+  links:
+    - https://leelog.dafnelee.com
+    - https://github.com/dafnelee89
+
+webmaster_verifications:
+  google:
+  bing:
+  alexa:
+  yandex:
+  baidu:
+  facebook:
+
+analytics:
+  google:
+    id:
+  goatcounter:
+    id:
+  umami:
+    id:
+    domain:
+  matomo:
+    id:
+    domain:
+  cloudflare:
+    id:
+  fathom:
+    id:
+
+pageviews:
+  provider:
+
+theme_mode:
+
+cdn:
+
+avatar: "/assets/img/sites/avatar.webp"
+
+social_preview_image: "/assets/img/sites/avatar.webp"
+
+toc: true
+
+comments:
+  provider:
+  disqus:
+    comments:
+    shortname:
+  utterances:
+    repo:
+    issue_term:
+  giscus:
+    repo: dafnelee89/leelog
+    repo_id:
+    category: Announcements
+    category_id:
+    mapping: pathname
+    strict: 0
+    input_position: bottom
+    lang: ko
+    reactions_enabled: 1
+
+assets:
+  self_host:
+    enabled:
+    env:
+
+pwa:
+  enabled: true
+  cache:
+    enabled: true
+    deny_paths:
+
+paginate: 10
+
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: dafnelee
+      comments: true
+      toc: true
+      permalink: /topics/:categories/:title/
+  - scope:
+      path: _drafts
+    values:
+      comments: false
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"

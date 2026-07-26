@@ -1,0 +1,72 @@
+- title: 일상
+  icon: fas fa-seedling
+  slug: daily
+  url: /topics/daily/
+  open: true
+  children:
+    - title: 기록
+      slug: record
+      url: /topics/daily/record/
+      category: [daily, record]
+    - title: 생각
+      slug: thought
+      url: /topics/daily/thought/
+      category: [daily, thought]
+    - title: 소비
+      slug: spend
+      url: /topics/daily/spend/
+      category: [daily, spend]
+- title: 공부
+  icon: fas fa-book-open
+  slug: study
+  url: /topics/study/
+  open: false
+  children:
+    - title: 개발
+      slug: dev
+      url: /topics/study/dev/
+      category: [study, dev]
+    - title: 영어
+      slug: english
+      url: /topics/study/english/
+      category: [study, english]
+    - title: 독서
+      slug: reading
+      url: /topics/study/reading/
+      category: [study, reading]
+- title: 리뷰
+  icon: fas fa-star
+  slug: review
+  url: /topics/review/
+  open: false
+  children:
+    - title: 책
+      slug: book
+      url: /topics/review/book/
+      category: [review, book]
+    - title: 제품
+      slug: product
+      url: /topics/review/product/
+      category: [review, product]
+    - title: 장소
+      slug: place
+      url: /topics/review/place/
+      category: [review, place]
+- title: 레시피
+  icon: fas fa-utensils
+  slug: recipe
+  url: /topics/recipe/
+  open: false
+  children:
+    - title: 한식
+      slug: korean
+      url: /topics/recipe/korean/
+      category: [recipe, korean]
+    - title: 간단요리
+      slug: simple
+      url: /topics/recipe/simple/
+      category: [recipe, simple]
+    - title: 도시락
+      slug: lunchbox
+      url: /topics/recipe/lunchbox/
+      category: [recipe, lunchbox]

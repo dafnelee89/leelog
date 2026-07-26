@@ -1,0 +1,5 @@
+# The contact options.
+
+- type: rss
+  icon: "fas fa-rss"
+  noblank: true
