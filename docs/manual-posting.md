@@ -64,4 +64,4 @@ bundle exec jekyll b
 npm run verify:indexing
 ```
 
-`verify:indexing`은 배포된 `https://leelog.dafnelee.com` 기준으로 sitemap, feed, robots, canonical, OG 메타데이터를 확인한다.
+`verify:indexing`은 배포된 `https://log.dafnelee.com` 기준으로 sitemap, feed, robots, canonical, OG 메타데이터를 확인한다.

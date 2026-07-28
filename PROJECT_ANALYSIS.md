@@ -2,7 +2,7 @@
 
 ## 목적
 
-`leelog`는 `https://leelog.dafnelee.com`에서 운영하는 한국어 수동 작성 블로그다. `notes-blog`의 구조를 바탕으로 만들었으며, 글은 자동화 없이 사람이 직접 `_drafts`와 `_posts`에 작성한다.
+`leelog`는 `https://log.dafnelee.com`에서 운영하는 한국어 수동 작성 블로그다. `notes-blog`의 구조를 바탕으로 만들었으며, 글은 자동화 없이 사람이 직접 `_drafts`와 `_posts`에 작성한다.
 
 이 레포의 핵심은 `Topics` 탭과 좌측 LNB 메뉴다. LNB 메뉴는 `_data/lnb_menu.yml`에서 관리하고, 각 메뉴 항목은 `topics/**/index.md` 페이지와 게시글 front matter의 `categories` 값으로 연결된다.
 
@@ -10,7 +10,7 @@
 
 - 기반: Jekyll Chirpy 7.1.1
 - 언어/시간대: `ko-KR`, `Asia/Seoul`
-- 도메인: `leelog.dafnelee.com`
+- 도메인: `log.dafnelee.com`
 - 글 URL: `/topics/:categories/:title/`
 - 작성자: `dafnelee`
 - 자동화 runtime: 없음
@@ -19,27 +19,27 @@
 
 ## 핵심 파일
 
-| 경로 | 역할 |
-| --- | --- |
-| `_config.yml` | 사이트 제목, 도메인, 작성자, permalink 설정 |
-| `_data/lnb_menu.yml` | Topics 좌측 LNB 메뉴의 상위/하위 항목 데이터 |
-| `_tabs/topics.md` | Topics 탭 진입 페이지, LNB 메뉴 전체 표시 |
-| `topics/<topic>/index.md` | 상위 LNB 메뉴의 목록 페이지 |
-| `topics/<topic>/<subtopic>/index.md` | 하위 LNB 메뉴의 목록 페이지 |
-| `_layouts/topic.html` | 토픽별 게시글 목록 레이아웃 |
-| `_includes/lnb-menu.html` | LNB 트리 렌더링 |
-| `_includes/sidebar.html` | Topics 화면에서 LNB를 붙이는 사이드바 |
-| `_posts/*.md` | 발행 글, `categories`가 LNB 메뉴와 연결됨 |
-| `_drafts/*.md` | 작성 중인 글 |
+| 경로                                 | 역할                                         |
+| ------------------------------------ | -------------------------------------------- |
+| `_config.yml`                        | 사이트 제목, 도메인, 작성자, permalink 설정  |
+| `_data/lnb_menu.yml`                 | Topics 좌측 LNB 메뉴의 상위/하위 항목 데이터 |
+| `_tabs/topics.md`                    | Topics 탭 진입 페이지, LNB 메뉴 전체 표시    |
+| `topics/<topic>/index.md`            | 상위 LNB 메뉴의 목록 페이지                  |
+| `topics/<topic>/<subtopic>/index.md` | 하위 LNB 메뉴의 목록 페이지                  |
+| `_layouts/topic.html`                | 토픽별 게시글 목록 레이아웃                  |
+| `_includes/lnb-menu.html`            | LNB 트리 렌더링                              |
+| `_includes/sidebar.html`             | Topics 화면에서 LNB를 붙이는 사이드바        |
+| `_posts/*.md`                        | 발행 글, `categories`가 LNB 메뉴와 연결됨    |
+| `_drafts/*.md`                       | 작성 중인 글                                 |
 
 ## 현재 LNB 메뉴 구조
 
-| 상위 메뉴 | slug | 하위 메뉴 |
-| --- | --- | --- |
-| 일상 | `daily` | `record`, `thought`, `spend` |
-| 공부 | `study` | `dev`, `english`, `reading` |
-| 리뷰 | `review` | `book`, `product`, `place` |
-| 레시피 | `recipe` | `korean`, `simple`, `lunchbox` |
+| 상위 메뉴 | slug     | 하위 메뉴                      |
+| --------- | -------- | ------------------------------ |
+| 일상      | `daily`  | `record`, `thought`, `spend`   |
+| 공부      | `study`  | `dev`, `english`, `reading`    |
+| 리뷰      | `review` | `book`, `product`, `place`     |
+| 레시피    | `recipe` | `korean`, `simple`, `lunchbox` |
 
 게시글의 `categories`는 반드시 LNB 메뉴의 `category`와 맞춰야 한다.
 
@@ -79,11 +79,11 @@ categories: [daily, record]
 
 즉, LNB 메뉴 한 줄은 아래 세 가지가 맞아야 정상 동작한다.
 
-| 화면 이름 | slug | 글 categories |
-| --- | --- | --- |
+| 화면 이름   | slug             | 글 categories     |
+| ----------- | ---------------- | ----------------- |
 | 일상 > 기록 | `daily > record` | `[daily, record]` |
-| 공부 > 개발 | `study > dev` | `[study, dev]` |
-| 리뷰 > 책 | `review > book` | `[review, book]` |
+| 공부 > 개발 | `study > dev`    | `[study, dev]`    |
+| 리뷰 > 책   | `review > book`  | `[review, book]`  |
 
 ### 작업 전 반드시 확인할 파일
 
@@ -97,12 +97,12 @@ rg "categories:" _posts _drafts
 
 역할은 다음과 같다.
 
-| 파일/폴더 | 무엇을 확인하는가 |
-| --- | --- |
-| `_data/lnb_menu.yml` | 좌측 LNB 메뉴에 보이는 이름, 순서, URL |
-| `topics/<1단계>/index.md` | 1단계 카테고리 페이지 |
-| `topics/<1단계>/<2단계>/index.md` | 2단계 카테고리 페이지 |
-| `_posts`, `_drafts` | 글이 어떤 `categories`를 쓰는지 |
+| 파일/폴더                         | 무엇을 확인하는가                      |
+| --------------------------------- | -------------------------------------- |
+| `_data/lnb_menu.yml`              | 좌측 LNB 메뉴에 보이는 이름, 순서, URL |
+| `topics/<1단계>/index.md`         | 1단계 카테고리 페이지                  |
+| `topics/<1단계>/<2단계>/index.md` | 2단계 카테고리 페이지                  |
+| `_posts`, `_drafts`               | 글이 어떤 `categories`를 쓰는지        |
 
 ### 1단계 카테고리 추가 예시
 
@@ -118,10 +118,10 @@ rg "categories:" _posts _drafts
 
 영어 slug는 다음처럼 정한다.
 
-| 이름 | slug |
-| --- | --- |
+| 이름 | slug      |
+| ---- | --------- |
 | 운동 | `workout` |
-| 헬스 | `gym` |
+| 헬스 | `gym`     |
 | 러닝 | `running` |
 
 #### 1. `_data/lnb_menu.yml`에 1단계 블록 추가
@@ -147,14 +147,14 @@ rg "categories:" _posts _drafts
 
 각 줄의 뜻:
 
-| 항목 | 뜻 |
-| --- | --- |
-| `title: 운동` | 화면에 보이는 한글 이름 |
-| `icon: fas fa-dumbbell` | LNB 아이콘 |
-| `slug: workout` | 1단계 카테고리 영어 이름 |
-| `url: /topics/workout/` | 1단계 페이지 주소 |
-| `open: false` | 처음 화면에서 접힌 상태 |
-| `children` | 2단계 카테고리 목록 |
+| 항목                       | 뜻                            |
+| -------------------------- | ----------------------------- |
+| `title: 운동`              | 화면에 보이는 한글 이름       |
+| `icon: fas fa-dumbbell`    | LNB 아이콘                    |
+| `slug: workout`            | 1단계 카테고리 영어 이름      |
+| `url: /topics/workout/`    | 1단계 페이지 주소             |
+| `open: false`              | 처음 화면에서 접힌 상태       |
+| `children`                 | 2단계 카테고리 목록           |
 | `category: [workout, gym]` | 글 front matter와 연결되는 값 |
 
 #### 2. 1단계 페이지 만들기
@@ -255,10 +255,10 @@ find topics/workout -type f | sort
 
 1단계 카테고리 수정은 두 종류가 있다.
 
-| 수정 종류 | 예시 | URL 변경 |
-| --- | --- | --- |
-| 이름만 수정 | `공부`를 `스터디`로 변경 | 안 바뀜 |
-| slug 수정 | `study`를 `learning`으로 변경 | 바뀜 |
+| 수정 종류   | 예시                          | URL 변경 |
+| ----------- | ----------------------------- | -------- |
+| 이름만 수정 | `공부`를 `스터디`로 변경      | 안 바뀜  |
+| slug 수정   | `study`를 `learning`으로 변경 | 바뀜     |
 
 초보자에게는 이름만 수정하는 방법을 권장한다. slug를 바꾸면 기존 글 URL도 바뀐다.
 
@@ -371,14 +371,14 @@ _drafts/*.md
 `english`, `reading`도 같은 방식으로 바꾼다.
 
 ```yaml
-    - title: 영어
-      slug: english
-      url: /topics/learning/english/
-      category: [learning, english]
-    - title: 독서
-      slug: reading
-      url: /topics/learning/reading/
-      category: [learning, reading]
+- title: 영어
+  slug: english
+  url: /topics/learning/english/
+  category: [learning, english]
+- title: 독서
+  slug: reading
+  url: /topics/learning/reading/
+  category: [learning, reading]
 ```
 
 #### 2. topic 폴더 이름 변경
@@ -609,10 +609,10 @@ daily > travel
 `daily` 그룹의 `children` 맨 아래에 추가한다.
 
 ```yaml
-    - title: 여행
-      slug: travel
-      url: /topics/daily/travel/
-      category: [daily, travel]
+- title: 여행
+  slug: travel
+  url: /topics/daily/travel/
+  category: [daily, travel]
 ```
 
 주의: 들여쓰기는 기존 `기록`, `생각`, `소비`와 정확히 같아야 한다.
@@ -681,10 +681,10 @@ find topics/daily -maxdepth 2 -type f | sort
 
 2단계 카테고리도 이름만 바꾸는 경우와 slug를 바꾸는 경우가 다르다.
 
-| 수정 종류 | 예시 | URL 변경 |
-| --- | --- | --- |
-| 이름만 수정 | `소비`를 `지출`로 변경 | 안 바뀜 |
-| slug 수정 | `spend`를 `expense`로 변경 | 바뀜 |
+| 수정 종류   | 예시                       | URL 변경 |
+| ----------- | -------------------------- | -------- |
+| 이름만 수정 | `소비`를 `지출`로 변경     | 안 바뀜  |
+| slug 수정   | `spend`를 `expense`로 변경 | 바뀜     |
 
 #### 예시 A: 2단계 이름만 수정
 
@@ -701,33 +701,33 @@ topics/daily/spend/index.md
 `_data/lnb_menu.yml` 변경 전:
 
 ```yaml
-    - title: 소비
-      slug: spend
-      url: /topics/daily/spend/
-      category: [daily, spend]
+- title: 소비
+  slug: spend
+  url: /topics/daily/spend/
+  category: [daily, spend]
 ```
 
 변경 후:
 
 ```yaml
-    - title: 지출
-      slug: spend
-      url: /topics/daily/spend/
-      category: [daily, spend]
+- title: 지출
+  slug: spend
+  url: /topics/daily/spend/
+  category: [daily, spend]
 ```
 
 `topics/daily/index.md` 변경 전:
 
 ```yaml
-  - title: 소비
-    url: /topics/daily/spend/
+- title: 소비
+  url: /topics/daily/spend/
 ```
 
 변경 후:
 
 ```yaml
-  - title: 지출
-    url: /topics/daily/spend/
+- title: 지출
+  url: /topics/daily/spend/
 ```
 
 `topics/daily/spend/index.md` 변경 전:
@@ -770,19 +770,19 @@ subtopic: spend
 변경 전:
 
 ```yaml
-    - title: 소비
-      slug: spend
-      url: /topics/daily/spend/
-      category: [daily, spend]
+- title: 소비
+  slug: spend
+  url: /topics/daily/spend/
+  category: [daily, spend]
 ```
 
 변경 후:
 
 ```yaml
-    - title: 소비
-      slug: expense
-      url: /topics/daily/expense/
-      category: [daily, expense]
+- title: 소비
+  slug: expense
+  url: /topics/daily/expense/
+  category: [daily, expense]
 ```
 
 #### 2. `topics/daily/index.md` 수정
@@ -790,15 +790,15 @@ subtopic: spend
 변경 전:
 
 ```yaml
-  - title: 소비
-    url: /topics/daily/spend/
+- title: 소비
+  url: /topics/daily/spend/
 ```
 
 변경 후:
 
 ```yaml
-  - title: 소비
-    url: /topics/daily/expense/
+- title: 소비
+  url: /topics/daily/expense/
 ```
 
 #### 3. 폴더 이름 변경
@@ -923,10 +923,10 @@ URL도 바뀐다.
 아래 블록만 삭제한다.
 
 ```yaml
-    - title: 소비
-      slug: spend
-      url: /topics/daily/spend/
-      category: [daily, spend]
+- title: 소비
+  slug: spend
+  url: /topics/daily/spend/
+  category: [daily, spend]
 ```
 
 상위 `일상` 블록 전체를 지우면 안 된다.
@@ -936,8 +936,8 @@ URL도 바뀐다.
 아래 두 줄을 삭제한다.
 
 ```yaml
-  - title: 소비
-    url: /topics/daily/spend/
+- title: 소비
+  url: /topics/daily/spend/
 ```
 
 #### 4. 2단계 페이지 삭제
@@ -1240,10 +1240,10 @@ URL도 함께 바뀐다.
 삭제 전:
 
 ```yaml
-    - title: 소비
-      slug: spend
-      url: /topics/daily/spend/
-      category: [daily, spend]
+- title: 소비
+  slug: spend
+  url: /topics/daily/spend/
+  category: [daily, spend]
 ```
 
 삭제 후에는 해당 블록을 완전히 제거한다.
@@ -1255,8 +1255,8 @@ URL도 함께 바뀐다.
 삭제 전:
 
 ```yaml
-  - title: 소비
-    url: /topics/daily/spend/
+- title: 소비
+  url: /topics/daily/spend/
 ```
 
 삭제 후에는 해당 두 줄을 제거한다.
@@ -1369,10 +1369,10 @@ rg "recipe|/topics/recipe" _data topics _posts _drafts
 `_data/lnb_menu.yml`:
 
 ```yaml
-    - title: 개발노트
-      slug: dev
-      url: /topics/study/dev/
-      category: [study, dev]
+- title: 개발노트
+  slug: dev
+  url: /topics/study/dev/
+  category: [study, dev]
 ```
 
 `topics/study/dev/index.md`:
@@ -1404,19 +1404,19 @@ slug를 바꾸면 URL과 글 category가 같이 바뀐다. 가장 영향이 크�
 변경 전:
 
 ```yaml
-    - title: 개발
-      slug: dev
-      url: /topics/study/dev/
-      category: [study, dev]
+- title: 개발
+  slug: dev
+  url: /topics/study/dev/
+  category: [study, dev]
 ```
 
 변경 후:
 
 ```yaml
-    - title: 개발
-      slug: programming
-      url: /topics/study/programming/
-      category: [study, programming]
+- title: 개발
+  slug: programming
+  url: /topics/study/programming/
+  category: [study, programming]
 ```
 
 게시글:
@@ -1456,13 +1456,13 @@ description: "검색 결과와 공유 카드에 표시할 짧은 설명입니다
 
 ## 자동화 블로그와 다른 점
 
-| 구분 | `leelog` | `info-blog`/`tech-blog` |
-| --- | --- | --- |
-| 글 생성 | 사람이 직접 작성 | 자동화 초안 생성 가능 |
-| 핵심 구조 | Topics LNB 메뉴 | 기본 post/category/tag 중심 |
-| 후보 이슈/`pick` 댓글 | 없음 | 있을 수 있음 |
-| URL 구조 | `/topics/<topic>/<subtopic>/<slug>/` | 블로그별 설정에 따름 |
-| OpenAI API key | 사용하지 않음 | 자동화 레포에서만 사용 |
+| 구분                  | `leelog`                             | `info-blog`/`tech-blog`     |
+| --------------------- | ------------------------------------ | --------------------------- |
+| 글 생성               | 사람이 직접 작성                     | 자동화 초안 생성 가능       |
+| 핵심 구조             | Topics LNB 메뉴                      | 기본 post/category/tag 중심 |
+| 후보 이슈/`pick` 댓글 | 없음                                 | 있을 수 있음                |
+| URL 구조              | `/topics/<topic>/<subtopic>/<slug>/` | 블로그별 설정에 따름        |
+| OpenAI API key        | 사용하지 않음                        | 자동화 레포에서만 사용      |
 
 ## 수정 시 체크리스트
 
