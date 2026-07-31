@@ -18,4 +18,4 @@ order: 5
 ## Links
 
 - [GitHub](https://github.com/dafnelee89)
-- [info-blog](https://info.dafnelee.com)
+- [info-blog](https://dafnelee.com)
