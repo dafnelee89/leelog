@@ -2,7 +2,7 @@
 
 ## 목적
 
-`leelog`는 `https://log.dafnelee.com`에서 운영하는 한국어 수동 작성 블로그다. `notes-blog`의 구조를 바탕으로 만들었으며, 글은 자동화 없이 사람이 직접 `_drafts`와 `_posts`에 작성한다.
+`leelog`는 `https://garnet.dafnelee.com`에서 운영하는 한국어 수동 작성 블로그다. `notes-blog`의 구조를 바탕으로 만들었으며, 글은 자동화 없이 사람이 직접 `_drafts`와 `_posts`에 작성한다.
 
 이 레포의 핵심은 `Topics` 탭과 좌측 LNB 메뉴다. LNB 메뉴는 `_data/lnb_menu.yml`에서 관리하고, 각 메뉴 항목은 `topics/**/index.md` 페이지와 게시글 front matter의 `categories` 값으로 연결된다.
 
@@ -10,7 +10,7 @@
 
 - 기반: Jekyll Chirpy 7.1.1
 - 언어/시간대: `ko-KR`, `Asia/Seoul`
-- 도메인: `log.dafnelee.com`
+- 도메인: `garnet.dafnelee.com`
 - 글 URL: `/topics/:categories/:title/`
 - 작성자: `dafnelee`
 - 자동화 runtime: 없음

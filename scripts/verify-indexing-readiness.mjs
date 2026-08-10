@@ -1,4 +1,4 @@
-const defaultSiteUrl = "https://log.dafnelee.com";
+const defaultSiteUrl = "https://garnet.dafnelee.com";
 const siteUrl = normalizeUrl(process.env.SITE_URL || defaultSiteUrl);
 const sitemapUrl = new URL(process.env.SITEMAP_PATH || "/sitemap.xml", siteUrl)
   .href;

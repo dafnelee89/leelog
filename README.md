@@ -1,6 +1,6 @@
 # leelog
 
-`leelog` is a manual Jekyll Chirpy site for `log.dafnelee.com`.
+`leelog` is a manual Jekyll Chirpy site for `garnet.dafnelee.com`.
 
 The site is Dafne's version of `notes-blog`: personally written notes across daily life, study, reviews, and recipes. It does not connect to `blog-automation`; posts are written by hand and published through the normal `_drafts` to `_posts` flow.
 

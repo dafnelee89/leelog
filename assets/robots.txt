@@ -6,4 +6,4 @@ permalink: /robots.txt
 User-agent: *
 Allow: /
 
-Sitemap: https://log.dafnelee.com/sitemap.xml
+Sitemap: https://garnet.dafnelee.com/sitemap.xml
